@@ -1,4 +1,6 @@
 ( function ( con-request ) {
     prompt ("Conditions: On; Off?")
 }
-if ( con-request === "On" ) 
+(function(rain) {
+  [heros+towersspeed-1]}
+if ( con-request === "On" ) {
