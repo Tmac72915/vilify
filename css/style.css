@@ -1,0 +1,21 @@
+/* Main stylesheet */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+	font-family: tahoma, arial;
+	font-size: 16px;
+}
+
+#pop {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-color:#CCCCCC;
+	background-color:rgba(255,0,0,0.5);
+	display:none;
+	text-align:center;
+}

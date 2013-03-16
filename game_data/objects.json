@@ -1,0 +1,250 @@
+{
+    "_comments": ["for a list of effects and what they do see https://github.com/Logi0/vilify/wiki/Effects",
+                "purpose tower ideas and tower stats at https://github.com/Logi0/vilify/wiki/Tower-Ideas"],
+    "towers": {
+        "Basic Tower": {
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "image": "basic_tower.png"
+        },
+        "Laser Tower": {
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "image": "ray_tower.png"
+        },
+        "Ice Tower": {
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "image": "ice_tower.png"
+        },
+        "Dust Tower": {
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "image": "dust_tower.png",
+            "effects": {
+                "corrosion": 1
+            }
+        },
+        "Flame Tower": {
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "image": "flame_tower.png",
+            "effects": {
+                
+            }
+        },
+        "Poison Tower": {
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "image": "poison_tower.png",
+            "effects": {
+                "posion": 1
+            }
+        },
+        "Lightning Tower": {
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "image": "lightning_tower.png",
+            "effects": {
+                
+            }
+        },
+        "Curse Tower": {
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "image": "curse_tower.png",
+            "effects": {
+                "slow": 1,
+                "weaken": 1
+            }
+        }
+    },
+    "monsters": {
+        "Zombie": {
+            "durability": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1
+        },
+        "Abomination": {
+            "durability": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1
+        },
+        "RoboGuard": {
+            "durability": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1
+        },
+        "Yeti": {
+            "durability": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1
+        },
+        "Needs Name": {
+            "_comments": ["A 4D gaurd, can attack heroes with out dystroying armor first"],
+            "durability": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1
+        },
+        "Alien": {
+            "durability": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1
+        },
+        "Mummy": {
+            "_comments": ["Kind of like curse tower"],
+            "durability": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1
+        },
+        "Talos": {
+            "_comments": ["Huge robot"],
+            "durability": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1
+        }
+    },
+    "potions": {
+        "Deadly Concoction": {
+            "damage": 1,
+            "area": 1
+        },
+        "Rust Potion": {
+            "damage": 1,
+            "area": 1
+        },
+        "Weakening Potion": {
+            "damage": 1,
+            "area": 1,
+            "effects": {
+                "weaken": 25
+            }
+        },
+        "Slow Potion": {
+            "damage": 1,
+            "area": 1,
+            "effects": {
+                "slow": 25
+            }
+        },
+        "Transform Potion": {
+            "damage": 1,
+            "area": 1,
+            "effects": {
+                "transform": 1
+            }
+        },
+        "Freeze Potion": {
+            "damage": 1,
+            "area": 1,
+            "effects": {
+                "freeze": 30
+            }
+        },
+        "Double Weakening Potion": {
+            "damage": 1,
+            "area": 1,
+            "effects": {
+                "weaken": 50
+            }
+        }
+    },
+    "heroes": {
+        "_comments":["armor is extra life due to some sort of thing the hero has. For example a Sidekick's durability is 10. The durability of the helmet is 2. One has to destroy the helmet before (s)he can defeat the hero.",
+                    "Also, I added two new Hero objects. The Carrier is intended for Level 23, The Tank is intended for Level 24."],
+        "Sidekick": {
+            "durability": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "speed": 1,
+            "upgrades": {
+                "helmet": {
+                    "armor": 1
+                },
+                "metal suit": {
+                    "armor": 1
+                }
+            }
+        },
+        "Waterborg": {
+            "durability": 1,
+            "armor": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "speed": 1
+        },
+        "Falcon": {
+            "durability": 1,
+            "armor": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "speed": 1
+        },
+        "Inferno Man": {
+            "durability": 1,
+            "armor": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "speed": 1
+        },
+        "Chomefly": {
+            "durability": 1,
+            "armor": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "speed": 1
+        },
+        "Spynes": {
+            "durability": 1,
+            "extra durability": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "speed": 1
+        },
+        "Boss": {
+            "durability": 1,
+            "extra durability": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "speed": 1
+        },
+        "The Hero Carrier": {
+            "_comments": ["needs a better name"],
+            "durability": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "speed": 1
+        },
+        "The Tank": {
+            "durability": 1,
+            "damage": 1,
+            "range": 1,
+            "rate": 1,
+            "speed": 1
+        }
+    }
+}
