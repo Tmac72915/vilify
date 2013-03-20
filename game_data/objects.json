@@ -121,7 +121,12 @@
         }
     },
     "potions": {
+        "_commets": ["Most potions need better names"],
         "Deadly Concoction": {
+            "damage": 1,
+            "area": 1
+        },
+        "Damaging Potion": {
             "damage": 1,
             "area": 1
         },
@@ -136,18 +141,18 @@
                 "weaken": 25
             }
         },
-        "Slow Potion": {
+        "Gravity Increase Potion": {
             "damage": 1,
             "area": 1,
             "effects": {
-                "slow": 25
+                
             }
         },
-        "Transform Potion": {
+        "Poison": {
             "damage": 1,
             "area": 1,
             "effects": {
-                "transform": 1
+                
             }
         },
         "Freeze Potion": {
@@ -157,11 +162,11 @@
                 "freeze": 30
             }
         },
-        "Double Weakening Potion": {
+        "Bomb": {
             "damage": 1,
             "area": 1,
             "effects": {
-                "weaken": 50
+                
             }
         }
     },
@@ -245,6 +250,33 @@
             "range": 1,
             "rate": 1,
             "speed": 1
+        }
+    },
+    "materials": {
+        "Scrap Metal": {
+            "type": "electronic",
+            "value": 1,
+            "image": "placeholder.png"
+        },
+        "Wires": {
+            "type": "electronic",
+            "value": 2,
+            "image": "placeholder.png"
+        },
+        "Battery": {
+            "type": "electronic",
+            "value": 3,
+            "image": "placeholder.png"
+        },
+        "Microchip": {
+            "type": "electronic",
+            "value": 4,
+            "image": "placeholder.png"
+        },
+        "Quantum Computer": {
+            "type": "electronic",
+            "value": 5,
+            "image": "placeholder.png"
         }
     }
 }
