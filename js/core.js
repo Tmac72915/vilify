@@ -22,7 +22,7 @@ var settings = Game.settings = {
 	mapData: null, // Game map data
 	tileData: null, // Tile sprite sheet data
 	towerData: null, // Tower sprite sheet data
-	materialDate: null, // Material sprite sheet data
+	materialData: null, // Material sprite sheet data
 	map: null, // Game map
 	sidebar: null // Game sidebar
 };
@@ -158,6 +158,12 @@ Game.Material = function( name, dimension, img ) {
 
 // Extend Entity
 Game.Material.prototype = new Game.Entity();
+
+// Override clicked method
+Game.Material.prototype.clicked = function() {
+	Game.getMaterial( this.name );
+	Game.killList.push( this );
+}
 
 // Resize the canvas when the window is resized
 // UPDATE: Test this later. Let's get the game running first

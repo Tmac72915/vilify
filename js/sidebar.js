@@ -9,9 +9,28 @@ var Game = window.Game,
 	
 	$sidebar = $( "#sidebar" )
 	
-$( "#lab" ).children().eq( 0 ).css( "background", "grey" );
 
-$( "#inventory" ).children().eq( 0 ).children().eq( 0 ).css( "background", "grey url( image_url_here )" );
-$( "#inventory" ).children().eq( 0 ).children().eq( 1 ).css( "background", "grey url( image_url_here )" );
+$( "#lab" ).children().each( function() {
+	$(this).data( "material", "" );
+});
+
+// Put material in lab box
+function getMaterial( material ) {
+	if ( $( "#lab" ).children().eq( 0 ).data( "material" ) == "" ) {
+		$( "#lab" ).children().eq( 0 ).data( "material", material );
+		$( "#lab" ).children().eq( 0 ).css( "background", " url(images/materials.png) " );
+	}
+	else if ( $( "#lab" ).children().eq( 1 ).data( "material" ) == "" ) {
+		$( "#lab" ).children().eq( 1 ).data( "material", material );
+		$( "#lab" ).children().eq( 1 ).css( "background", " url(images/materials.png) " );
+	}
+	else if ( $( "#lab" ).children().eq( 2 ).data( "material" ) == "" ) {
+		$( "#lab" ).children().eq( 2 ).data( "material", material );
+		$( "#lab" ).children().eq( 2 ).css( "background", " url(images/materials.png) " );
+		// TODO: Add new tower code
+	}
+}
+
+Game.getMaterial = getMaterial;
 
 })( window );

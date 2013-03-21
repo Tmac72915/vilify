@@ -32,10 +32,24 @@ Game.assetManager.add( "Tile Spritesheet", new Game.Asset( "image", "images/tile
 Game.assetManager.add( "Tower Spritesheet", new Game.Asset( "image", "images/towers.png" ) );
 Game.assetManager.add( "Material Spritesheet", new Game.Asset( "image", "images/materials.png" ) );
 
+// jQuery canvas object
+var $canvas = $( "#canvas" );
+
+// Get canvas offset
+var offset = {
+    x: $canvas.offset().left,
+    y: $canvas.offset().top
+};
+
+// Create a new InputManager
+Game.inputManager = new Game.InputManager( Game.canvas, offset );
+
 /**
  * Updates the game state
  */
 Game.update = function() {
+	Game.inputManager.unload( Game.entities, Game.ctx );
+	
 	for ( var i = 0; i < Game.entities.length; i++ ) {
 		Game.entities[i].update();
 	}
@@ -55,6 +69,12 @@ Game.draw = function() {
 	for ( var i = 0; i < Game.entities.length; i++ ) {
 		Game.entities[i].draw( ctx );
 	}
+	
+	// Destroy entities
+	for ( var i = 0; i < Game.killList.length; i++ ) {
+		Game.entities.splice( Game.entities.indexOf( Game.killList[i] ), 1 );
+	}
+	Game.killList = [];
 };
 
 
@@ -79,7 +99,9 @@ Game.assetManager.load( function() {
 		new Game.Tower( "Poison Tower", { x: 64 * 5 + 32, y: 64 * 1 + 32, width: 64, height: 64 } ),
 		new Game.Tower( "Lightning Tower", { x: 64 * 6 + 32, y: 64 * 1 + 32, width: 64, height: 64 } ),
 		new Game.Tower( "Ice Tower", { x: 64 * 7 + 32, y: 64 * 1 + 32, width: 64, height: 64 } ),
-		new Game.Material( "Scrap Metal", { x: 64 * 7 + 32, y: 64 * 2 + 32, width: 32, height: 32 } )
+		new Game.Material( "Scrap Metal", { x: 64 * 7 + 32, y: 64 * 2 + 32, width: 32, height: 32 } ),
+		new Game.Material( "Battery", { x: 64 * 3 + 50, y: 64 * 5 + 4, width: 32, height: 32 } ),
+		new Game.Material( "Microchip", { x: 64 * 9 + 12, y: 64 * 6 + 39, width: 32, height: 32 } )
 	] );
 
 	// Start the engine
