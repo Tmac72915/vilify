@@ -14,20 +14,20 @@
             "rate": 1,
             "image": "ray_tower.png"
         },
+        "Dust Tower": {
+	    "damage": 1,
+	    "range": 1,
+	    "rate": 1,
+	    "image": "dust_tower.png",
+	    "effects": {
+		"corrosion": 1
+	    }
+        },
         "Ice Tower": {
             "damage": 1,
             "range": 1,
             "rate": 1,
             "image": "ice_tower.png"
-        },
-        "Dust Tower": {
-            "damage": 1,
-            "range": 1,
-            "rate": 1,
-            "image": "dust_tower.png",
-            "effects": {
-                "corrosion": 1
-            }
         },
         "Flame Tower": {
             "damage": 1,
@@ -121,48 +121,47 @@
         }
     },
     "potions": {
-        "_commets": ["Most potions need better names"],
+        "Pain Potion": {
+            "damage": 1,
+            "area": 1
+        },
         "Deadly Concoction": {
             "damage": 1,
             "area": 1
         },
-        "Damaging Potion": {
+        "Rust Serum": {
             "damage": 1,
             "area": 1
         },
-        "Rust Potion": {
-            "damage": 1,
-            "area": 1
-        },
-        "Weakening Potion": {
+        "Cursed Water": {
             "damage": 1,
             "area": 1,
             "effects": {
                 "weaken": 25
             }
         },
-        "Gravity Increase Potion": {
+        "Gravity Potion": {
             "damage": 1,
             "area": 1,
             "effects": {
                 
             }
         },
-        "Poison": {
+        "Poisonous Mixture": {
             "damage": 1,
             "area": 1,
             "effects": {
                 
             }
         },
-        "Freeze Potion": {
+        "Ice Serum": {
             "damage": 1,
             "area": 1,
             "effects": {
                 "freeze": 30
             }
         },
-        "Bomb": {
+        "Explosive Mixture": {
             "damage": 1,
             "area": 1,
             "effects": {
@@ -256,27 +255,27 @@
         "Scrap Metal": {
             "type": "electronic",
             "value": 1,
-            "image": "placeholder.png"
+            "image": "battery.png"
         },
         "Wires": {
             "type": "electronic",
             "value": 2,
-            "image": "placeholder.png"
+            "image": "battery.png"
         },
         "Battery": {
             "type": "electronic",
             "value": 3,
-            "image": "placeholder.png"
+            "image": "battery.png"
         },
         "Microchip": {
             "type": "electronic",
             "value": 4,
-            "image": "placeholder.png"
+            "image": "battery.png"
         },
         "Quantum Computer": {
             "type": "electronic",
             "value": 5,
-            "image": "placeholder.png"
+            "image": "battery.png"
         }
     }
 }

@@ -48,8 +48,17 @@ Game.inputManager = new Game.InputManager( Game.canvas, offset );
  * Updates the game state
  */
 Game.update = function() {
-	Game.inputManager.unload( Game.entities, Game.ctx );
+	// Process events
+	if ( !Game.Sidebar.needTile ) {
+		Game.inputManager.unload( Game.entities, Game.ctx );
+	} else {
+		tile = Game.inputManager.unloadToMap( 64, 64 );
+		if ( tile ) {
+			Game.Sidebar.giveTile( tile );
+		}
+	}
 	
+	// Update all entities
 	for ( var i = 0; i < Game.entities.length; i++ ) {
 		Game.entities[i].update();
 	}
@@ -94,14 +103,14 @@ Game.assetManager.load( function() {
 		new Game.Tower( "Basic Tower", { x: 64 * 0 + 32, y: 64 * 1 + 32, width: 64, height: 64 } ),
 		new Game.Tower( "Laser Tower", { x: 64 * 1 + 32, y: 64 * 1 + 32, width: 64, height: 64 } ),
 		new Game.Tower( "Dust Tower", { x: 64 * 2 + 32, y: 64 * 1 + 32, width: 64, height: 64 } ),
-		new Game.Tower( "Flame Tower", { x: 64 * 3 + 32, y: 64 * 1 + 32, width: 64, height: 64 } ),
-		new Game.Tower( "Curse Tower", { x: 64 * 4 + 32, y: 64 * 1 + 32, width: 64, height: 64 } ),
+		new Game.Tower( "Ice Tower", { x: 64 * 3 + 32, y: 64 * 1 + 32, width: 64, height: 64 } ),
+		new Game.Tower( "Flame Tower", { x: 64 * 4 + 32, y: 64 * 1 + 32, width: 64, height: 64 } ),
 		new Game.Tower( "Poison Tower", { x: 64 * 5 + 32, y: 64 * 1 + 32, width: 64, height: 64 } ),
 		new Game.Tower( "Lightning Tower", { x: 64 * 6 + 32, y: 64 * 1 + 32, width: 64, height: 64 } ),
-		new Game.Tower( "Ice Tower", { x: 64 * 7 + 32, y: 64 * 1 + 32, width: 64, height: 64 } ),
-		new Game.Material( "Scrap Metal", { x: 64 * 7 + 32, y: 64 * 2 + 32, width: 32, height: 32 } ),
+		new Game.Tower( "Curse Tower", { x: 64 * 7 + 32, y: 64 * 1 + 32, width: 64, height: 64 } ),
+		new Game.Material( "Battery", { x: 64 * 7 + 32, y: 64 * 2 + 32, width: 32, height: 32 } ),
 		new Game.Material( "Battery", { x: 64 * 3 + 50, y: 64 * 5 + 4, width: 32, height: 32 } ),
-		new Game.Material( "Microchip", { x: 64 * 9 + 12, y: 64 * 6 + 39, width: 32, height: 32 } )
+		new Game.Material( "Battery", { x: 64 * 9 + 12, y: 64 * 6 + 39, width: 32, height: 32 } )
 	] );
 
 	// Start the engine

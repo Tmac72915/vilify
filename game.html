@@ -2,51 +2,58 @@
 <html>
     <head>
         <title>Vilify Game</title>
-	
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1" />
-	
-	<!-- Load stylesheets -->
+
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1" />
+
+		<!-- Load stylesheets -->
         <link href='http://fonts.googleapis.com/css?family=Snowburst+One' rel='stylesheet' type='text/css'>
         <link href="css/style.css" rel="stylesheet" />
     </head>
     <body>
 		<div id="container">
 			<div id="sidebar">
-				<div class="header">
-					<h2>Vilify</h2>
+				<!-- Sidebar Header -->
+				<div id="header" class="header">
+					<img id="logo" src="images/logo.png" alt="Vilify" />
 				</div>
+
+				<!-- Lab Wiget -->
 				<div id="lab">
-					<div class="lab-box">
-					</div>
-					<div class="lab-box">
-					</div>
-					<div class="lab-box">
-					</div>
+					<div class="lab-box"></div>
+					<div class="lab-box"></div>
+					<div class="lab-box"></div>
 				</div>
+
+				<!-- Place Tower Wiget -->
+				<div id="place-tower">
+					<div class="preview-box"></div>
+					<b class="preview-name"></b>
+					<hr>
+					Rank: <span class="rank"></span>
+					<hr>
+					Insert a short description here...
+					<hr>
+					Click on any empty wall tile to place this tower...
+					<hr>
+					<button class="button" onclick="Game.Sidebar.changeState( 'Lab' ); Game.Sidebar.needTile = false;">Discard</button>
+				</div>
+
+				<!-- Inventory Wiget -->
 				<div id="inventory">
 					<div class="inventory-row">
-						<div class="inventory-box">
-						</div>
-						<div class="inventory-box">
-						</div>
-						<div class="inventory-box">
-						</div>
+						<div class="inventory-box"></div>
+						<div class="inventory-box"></div>
+						<div class="inventory-box"></div>
 					</div>
 					<div class="inventory-row">
-						<div class="inventory-box">
-						</div>
-						<div class="inventory-box">
-						</div>
-						<div class="inventory-box">
-						</div>
+						<div class="inventory-box"></div>
+						<div class="inventory-box"></div>
+						<div class="inventory-box"></div>
 					</div>
 					<div class="inventory-row">
-						<div class="inventory-box">
-						</div>
-						<div class="inventory-box">
-						</div>
-						<div class="inventory-box">
-						</div>
+						<div class="inventory-box"></div>
+						<div class="inventory-box"></div>
+						<div class="inventory-box"></div>
 					</div>
 				</div>
 			</div>
@@ -61,8 +68,8 @@
 		<!-- Load scripts -->
 		<script src="js/utilities.js"></script>
         <script src="js/engine.js"></script>
+        <script src="js/sidebar.js"></script>
         <script src="js/core.js"></script>
-		<script src="js/sidebar.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
