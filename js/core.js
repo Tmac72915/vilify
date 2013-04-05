@@ -33,9 +33,54 @@ var settings = Game.settings = {
  */
 Game.Map = function( layout ) {
 	this.layout = layout;
+	this.paths = this.getPaths();
 };
 
 Game.Map.prototype = {
+	/**
+	 * Get all the paths through the map
+	 */
+	getPaths: function() {
+		path_q = [];
+		startTile = { x: 0, y: 0 };
+		endTile = { x: 9, y: 9 };
+		initPath = [startTile];
+		path_q.push(initPath);
+		while ( path_q.length != 0 ) {
+			tmpPath = path_q.splice( 0, 1 )[0];
+			lastTile = tmpPath[ tmpPath.length - 1];
+			if ( lastTile.x == endTile.x && lastTile.y == endTile.y ) {
+				for ( i = 0; i < tmpPath.length; i++ ) {
+					tmpPath[i].x = tmpPath[i].x * 64 + 32;
+					tmpPath[i].y = tmpPath[i].y * 64 + 32;
+				}
+				return tmpPath;
+			}
+			adjTiles = [{ x: lastTile.x - 1, y: lastTile.y }, { x: lastTile.x + 1, y: lastTile.y }, { x: lastTile.x, y: lastTile.y - 1 }, { x: lastTile.x, y: lastTile.y + 1 } ];
+			for ( i = 0; i < adjTiles.length; i++) {
+				adjTile = adjTiles[i];
+				if ( adjTile.x < 0 || adjTile.x > 9 || adjTile.y < 0 || adjTile.y > 9 ) {
+					continue;
+				}
+				else if ( this.layout[adjTile.y][adjTile.x] == settings.tiles.UNWALKABLE ) {
+					continue;
+				}
+				alreadyInPath = false;
+				for ( j = 0; j < tmpPath.length; j++ ) {
+					if ( adjTile.x == tmpPath[j].x  && adjTile.y == tmpPath[j].y ) {
+						alreadyInPath = true;
+					}
+				}
+				if ( !alreadyInPath ) {
+					newPath = tmpPath;
+					newPath.push( adjTile ) 
+					path_q.push( newPath );
+				}
+			}
+		}
+		// No path
+		throw "Map: No possible path!";
+	},
 	/**
 	 * Draws the map on the canvas
 	 */
@@ -82,7 +127,7 @@ Game.Map.prototype = {
 /**
  * Tower object constructor
  */
-Game.Tower = function( name, dimension, img ) {
+Game.Tower = function( name, dimension ) {
 	// TODO: Define some basic attributes that all towers can inherit
 
 	if ( settings.objectData.towers[name] == undefined )
@@ -131,23 +176,52 @@ Game.Potion.prototype = new Game.Entity();
 
 /**
  * Hero object constructor
+ * @param path - an array of points that the hero walk through e.g. [{x: 64, y: 64}, {x: 128, y: 128}]
  */
-Game.Hero = function( name, dimension ) {
-	// TODO: Define some basic attributes that all heroes can inherit
-
+Game.Hero = function( name, dimension, path ) {
 	if ( settings.objectData.heroes[name] == undefined )
 		throw "Hero: Invalid name: " + name;
-
-	Game.Entity.call( this, ["heroes", name], dimension );
+	
+	Game.Entity.call( this, ["heroes", name], dimension, undefined/*Game.assets["Hero Spritesheet"].elem*/, {}/*settings.heroData.frames[settings.objectData.heroes[name].image].frame*/ );
+	
+	this.path = path;
+	this.speed = settings.objectData.heroes[name].speed;
 }
 
 // Extends Entity
 Game.Hero.prototype = new Game.Entity();
 
+// Override Update Method
+Game.Hero.prototype.update = function() {
+	// Move towards next point on path
+	if ( this.path.length > 0 ) {
+		nextPoint = this.path[0];
+		
+		// Move x
+		if ( this.x > nextPoint.x ) {
+			this.x -= Math.min( Math.abs(nextPoint.x - this.x), this.speed  / settings.fps * 64 );
+		} else if ( this.x < nextPoint.x ) {
+			this.x += Math.min( Math.abs(nextPoint.x - this.x), this.speed  / settings.fps * 64 );
+		}
+		
+		// Move y
+		if ( this.y > nextPoint.y ) {
+			this.y -= Math.min( Math.abs(nextPoint.y - this.y), this.speed  / settings.fps * 64 );
+		} else if ( this.y < nextPoint.y ) {
+			this.y += Math.min( Math.abs(nextPoint.y - this.y), this.speed  / settings.fps * 64 );
+		}
+		
+		// Check to see if hero has reached nextPoint
+		if ( this.x == nextPoint.x && this.y == nextPoint.y ) {
+			this.path.splice( 0, 1 ); // Remove nextPoint from path
+		}
+	}
+}
+
 /**
  * Material object constructor
  */
-Game.Material = function( name, dimension, img ) {
+Game.Material = function( name, dimension ) {
 	// TODO: Define some basic attributes that all towers can inherit
 
 	if ( settings.objectData.materials[name] == undefined )
