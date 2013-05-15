@@ -1,88 +1,73 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+        
+    <!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    
+    <!-- Load stylesheets -->
+    <link href='http://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Happy+Monkey' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     
-    	<!-- Icon -->
-	<link rel="shortcut icon" href="favicon.ico">
-
+    <!-- Icon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    
     <title>Vilify</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-      <div class="inner">
-        <h1>Vilify</h1>
-        <h2>An Open Source HTML5 Game</h2>
-        <a href="https://github.com/HTML5-Games/vilify" class="button">
-          <small>View project on</small>
-          GitHub
-        </a>
-      </div>
+		<div class="container">
+ 	    	<img src="images/logo.png" alt="Vilify"/>
+        	<nav class="pull-right">
+                <a href="http://HTML5-Games.github.com/vilify/game.html" class="button">
+                    Play Vilify
+                </a>
+                <a href="https://github.com/HTML5-Games/vilify/zipball/master" class="button">
+                    Download .zip
+                </a>
+                <a href="https://github.com/HTML5-Games/vilify/tarball/master" class="button">
+                    Download .tar.gz
+                </a>
+        	</nav>
+        </div>
+        <div id="bar"></div>
     </header>
-
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-  		<div style="display: inline;">
-					<iframe src="http://ghbtns.com/github-btn.html?user=HTML5-Games&repo=vilify&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
-				</div>
-				<div style=" display: inline;">
-					<iframe src="http://ghbtns.com/github-btn.html?user=HTML5-Games&repo=vilify&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
-				</div>
-			<div style="clear: both"></div>
-
-			<br>
-
-			<h1>You are a mad scientist,</h1>
-			<p>who has just completed a doomsday device! In 24 hours the device will erupt, destroying the world! Unfortunately, those pesky Super Heroes have discovered your evil plan, and now they are invading your lab! (Why can't they just mind their own business for once! All you are trying to do is only destroying the world!) Now you must build electronic defense towers, mix poisonous potions, and raise the dead! Protect your lab!</p>
-			
-			<p>Vilify is made by the Codecademy <a href="http://www.codecademy.com/groups/html5-game-development/invite/9aec4bb0429f38c47944ab6d42fc30d3">HTML5 Game Development Group</a>.</p>
-        </section>
-
-        <aside id="sidebar">
-           <a href="http://HTML5-Games.github.com/vilify/game.html" class="button">
-            <small>Play</small>
-            Vilify
-          </a>
-          <a href="https://github.com/HTML5-Games/vilify/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/HTML5-Games/vilify/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+    
+	<div class="container">
+        <h1>You are a mad scientist,</h1>
+        <p>who has just completed a doomsday device! In 24 hours the device will erupt, destroying the world! Unfortunately, those pesky Super Heroes have discovered your evil plan, and now they are invading your lab! (Why can't they just mind their own business for once! All you are trying to do is only destroying the world!) Now you must build electronic defense towers, mix poisonous potions, and raise the dead! Protect your lab!</p>
+		
+        <a href="https://github.com/HTML5-Games/vilify/wiki/Collaborators">Do you want to help make Vilify?</a>
+        
+        <hr/>
+        
+        <p class="muted">
+        Vilify is made by the <a href="http://www.codecademy.com/groups/html5-game-development/invite/9aec4bb0429f38c47944ab6d42fc30d3">HTML5 Game Development Group</a> on Codecademy.
+        
+	</div>
 	
-	<p><a href="https://github.com/HTML5-Games/vilify/wiki/Collaborators">Want to help make Vilify?</a></p>
-	
-          <p class="repo-owner"><a href="https://github.com/HTML5-Games/vilify"></a> This site is maintained by <a href="https://github.com/Logi0">Logi0</a>.</p>
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 
-          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
-    </div>
+	<script type="text/javascript">
+	    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    	try {
+      		var pageTracker = _gat._getTracker("UA-39351905-1");
+    		pageTracker._trackPageview();
+    	} catch(err) {}
+    </script>
 
-            <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-39351905-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-  </body>
+</body>
 </html>
